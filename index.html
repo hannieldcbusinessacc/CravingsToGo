@@ -343,43 +343,36 @@ border-radius:8px;
 }
 
 /* MOBILE MEDIA QUERY */
-
-@media(max-width:900px){
+/* MOBILE / TABLET NAVBAR LEFT-RIGHT LAYOUT */
+@media (max-width:900px){
   .nav-links{
-    justify-content: center;
-    gap: clamp(10px,5vw,20px);
+    justify-content: flex-start; /* keep left-to-right alignment */
+    gap: clamp(10px, 4vw, 25px); /* smaller gap for smaller screens */
+    flex-wrap: wrap; /* allow wrapping if needed */
   }
-  
-  #home, #menu, #contact{
-    padding: clamp(50px, 8vw, 80px) 5%;
+
+  .nav-links a{
+    font-size: clamp(14px, 2vw, 16px); /* shrink font for mobile */
   }
-  
-  .subject-card-grid{
-    grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 40%, 200px), 1fr));
+
+  .navbar{
+    padding: clamp(8px, 3vw, 15px); /* adjust navbar padding */
+    flex-wrap: nowrap; /* keep logo + links on one line */
   }
 }
 
-@media(max-width:600px){
-  .navbar{
-    flex-direction: column;
-    align-items:flex-start;
-    padding: clamp(8px, 3vw, 15px);
-  }
-  
+/* SMALLER MOBILE (under 600px) */
+@media (max-width:600px){
   .nav-links{
-    width:100%;
-    flex-direction: column;
-    gap: clamp(10px,3vw,15px);
+    gap: clamp(8px, 3vw, 15px);
   }
-  
-  .dropdown-content{
-    left:0;
-    top:100%;
-    transform: translateY(0);
+
+  .navbar{
+    padding: clamp(6px, 3vw, 12px);
   }
-  
-  section{
-    padding: clamp(40px, 8vw, 70px) 5%;
+
+  .nav-logo{
+    font-size: clamp(16px, 4vw, 18px); /* logo text shrinks slightly */
   }
 }
 

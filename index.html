@@ -114,21 +114,49 @@ color:#ffe6f2;
 }
 
 /* HERO */
+/* Ensure parent is relative for ::before to work */
+#home {
+  position: relative;
+  min-height: 100vh;
+  padding: 110px 20px 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
-#home{
-min-height:100vh;
-padding:110px 20px 60px 20px;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
+  /* Your hero background with gradient overlay */
+  background: linear-gradient(rgba(255,47,134,0.85), rgba(255,47,134,0.85)),
+              url("https://scontent.fmnl17-1.fna.fbcdn.net/v/t39.30808-6/611550921_1281150910707341_468585213132234199_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=2a1932&_nc_eui2=AeEwdviRvH3zK5njrgYMJHnr3dFI3olctgHd0UjeiVy2ASs_JDPjKLvdVnhmE8ASFuSLge8a7XverinPx7tWgz2_&_nc_ohc=UqwWFfE5_9UQ7kNvwH-cNiT&_nc_oc=AdmJ4yDEdbpF8yUmrv4_fEB4FAaLOjK9OeOGx_9aWNhhQaOeM8AXx48g6wj_qDjMUNM&_nc_zt=23&_nc_ht=scontent.fmnl17-1.fna&_nc_gid=vUi_T7y1QQM1jktnOsL_Vg&_nc_ss=8&oh=00_Afw2LJ5RNLON0JbVakPZyRMrmIpZupAO6HzVeUdy3v1YVg&oe=69BC7BF6");
+  background-size: cover;
+  background-position: center;
+}
 
-background:
-linear-gradient(rgba(255,47,134,0.85),rgba(255,47,134,0.85)),
-url("https://scontent.fmnl17-1.fna.fbcdn.net/v/t39.30808-6/611550921_1281150910707341_468585213132234199_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=2a1932&_nc_eui2=AeEwdviRvH3zK5njrgYMJHnr3dFI3olctgHd0UjeiVy2ASs_JDPjKLvdVnhmE8ASFuSLge8a7XverinPx7tWgz2_&_nc_ohc=UqwWFfE5_9UQ7kNvwH-cNiT&_nc_oc=AdmJ4yDEdbpF8yUmrv4_fEB4FAaLOjK9OeOGx_9aWNhhQaOeM8AXx48g6wj_qDjMUNM&_nc_zt=23&_nc_ht=scontent.fmnl17-1.fna&_nc_gid=vUi_T7y1QQM1jktnOsL_Vg&_nc_ss=8&oh=00_Afw2LJ5RNLON0JbVakPZyRMrmIpZupAO6HzVeUdy3v1YVg&oe=69BC7BF6");
+/* Table glow overlay */
+#home::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 70%
+  );
+  animation: tableGlow 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
 
-background-size:cover;
-background-position:center;
+@keyframes tableGlow {
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(50%) translateY(50%) rotate(360deg);
+  }
 }
 
 .hero-content{
@@ -229,6 +257,7 @@ color:white;
 
 
 
+
 /* MAP */
 
 .map-container{
@@ -298,6 +327,7 @@ visibility:hidden;
 transform:translateY(10px);
 transition:0.25s ease;
 z-index:1000;
+  max-width: 90vw;
 }
 
 .dropdown-content a{
@@ -360,6 +390,12 @@ border-radius:8px;
     flex-wrap: nowrap; /* keep logo + links on one line */
   }
 }
+  .dropdown-content {
+    left: auto;
+    right: 0; /* align right to prevent cutoff */
+    min-width: 180px; /* slightly smaller on mobile */
+    font-size: 13px;
+  }
 
 /* SMALLER MOBILE (under 600px) */
 @media (max-width:600px){
@@ -533,6 +569,12 @@ Perfect treats for friends, family, and sweet moments.
 
 <div class="subject-card"> 
 <h3> Frozen Yogurt 1 Topping</h3>
+<p> A healthy, guilt-free dessert! Smooth, creamy and perfectly balanced yogurt goodness in every spoonful!</p>
+<div class="price">₱160</div>
+</div>
+
+<div class="subject-card"> 
+<h3> Frozen Yogurt 4 Toppings</h3>
 <p> A healthy, guilt-free dessert! Smooth, creamy and perfectly balanced yogurt goodness in every spoonful!</p>
 <div class="price">₱160</div>
 </div>

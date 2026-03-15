@@ -341,7 +341,124 @@ max-width:200x;
 margin-top:10px;
 border-radius:8px;
 }
+
+
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+.navbar{
+height:auto;
+padding:10px;
+}
+
+.nav-links{
+gap:12px;
+}
+
+section{
+padding:70px 15px;
+}
+}
+ 
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:65px;
+background:#8b5e3c;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 40px;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+z-index:1000;
+}
+
+.nav-logo{
+display:flex;
+align-items:center;
+gap:10px;
+color:white;
+text-decoration:none;
+font-family:"Oswald";
+font-size:20px;
+}
+
+.logo{
+width:40px;
+height:40px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+align-items:center;
+}
+
+.nav-links a{
+font-family:"Oswald";
+color:white;
+text-decoration:none;
+font-size:16px;
+letter-spacing:1px;
+transition:.2s;
+}
+
+.nav-links a:hover{
+color:#ffd7a3;
+}
+
+/* DROPDOWN */
+
+.dropdown{
+position:relative;
+}
+
+.dropdown-content{
+position:absolute;
+top:40px;
+left:0;
+background:white;
+border-radius:8px;
+box-shadow:0 6px 18px rgba(0,0,0,0.25);
+border-top:4px solid #8b5e3c;
+min-width:200px;
+
+opacity:0;
+visibility:hidden;
+transform:translateY(10px);
+transition:0.25s ease;
+}
+
+.dropdown-content a{
+display:block;
+padding:10px 15px;
+color:#4a2d18;
+text-decoration:none;
+font-family:"Oswald";
+font-size:14px;
+}
+
+.dropdown-content a:hover{
+background:#f1e4d6;
+}
+
+.dropdown:hover .dropdown-content{
+opacity:1;
+visibility:visible;
+transform:translateY(0);
+}
+
+
 </style>
+
+
 
 </head>
 <script>
